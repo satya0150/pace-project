@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useUserAuth } from '../../context/UserAuthContext';
 import Navbar from '../navbar/Header';
 import Card from './Card';
 import './Home.css';

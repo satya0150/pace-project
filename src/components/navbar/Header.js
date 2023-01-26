@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css';
 
 import { Navbar, Nav, Container, NavDropdown, Offcanvas, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { useUserAuth } from '../../context/UserAuthContext';
 
 

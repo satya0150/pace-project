@@ -12,7 +12,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { logIn } = useUserAuth();
+  const { logIn, googleSignIn } = useUserAuth();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +23,17 @@ function Login() {
     } catch (err) {
       setError(err.message);
     }
-  }
+  };
+
+  const handleGoogleSignIn = async (e) =>{
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      navigate("/home");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
   return (
     <MDBContainer className=" gradient-form my-5">
@@ -81,14 +91,9 @@ function Login() {
               <hr className="my-4" />
 
 
-              <MDBBtn className="mb-4 w-100" style={{ backgroundColor: '#dd4b39' }}>
+              <MDBBtn className="mb-4 w-100" style={{ backgroundColor: '#dd4b39' }} onClick={handleGoogleSignIn}>
                 <MDBIcon fab icon="google" className="mx-2" />
                 Sign in with google
-              </MDBBtn>
-
-              <MDBBtn className="mb-4 w-100" style={{ backgroundColor: '#171515' }}>
-                <MDBIcon fab icon="github" className="mx-2" />
-                Sign in with github
               </MDBBtn>
             </form>
           </div>

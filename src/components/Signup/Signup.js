@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Logins/login.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from "../../context/UserAuthContext";
 import { Alert } from 'react-bootstrap';
@@ -15,14 +15,14 @@ function Signup() {
     const { signUp } = useUserAuth();
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
-       e.preventDefault();
-       setError("");
-       try{
-        await signUp(email, password);
-        navigate("/");
-       }catch(err){
-        setError(err.message);
-       } 
+        e.preventDefault();
+        setError("");
+        try {
+            await signUp(email, password);
+            navigate("/");
+        } catch (err) {
+            setError(err.message);
+        }
     }
     return (
         <MDBContainer className=" gradient-form my-5">
@@ -86,21 +86,8 @@ function Signup() {
                                 </Link>
                             </div>
 
-                            {/* <div className="divider d-flex align-items-center my-4">
-              <p className="text-center fw-bold mx-3 mb-0">OR</p>
-            </div> */}
-                            <hr className="my-4" />
 
 
-                            <MDBBtn className="mb-4 w-100" style={{ backgroundColor: '#dd4b39' }}>
-                                <MDBIcon fab icon="google" className="mx-2" />
-                                Sign Up with google
-                            </MDBBtn>
-
-                            <MDBBtn className="mb-4 w-100" style={{ backgroundColor: '#171515' }}>
-                                <MDBIcon fab icon="github" className="mx-2" />
-                                Sign Up with github
-                            </MDBBtn>
                         </form>
                     </div>
 
