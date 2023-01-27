@@ -12,9 +12,9 @@ import ProtectedRoute from './components/protected/ProtectedRoute';
 
 function App() {
   return (
+    <UserAuthContextProvider>
+      <Router>
 
-    <Router>
-      <UserAuthContextProvider>
         <Routes>
           <Route exact path="/" element={<Login />} ></Route>
           <Route exact path="/home"
@@ -27,9 +27,9 @@ function App() {
           <Route exact path="/navbar" element={<Navbar />} ></Route>
           <Route exact path="*" element={<Nopage />} ></Route>
         </Routes>
-      </UserAuthContextProvider>
-    </Router>
 
+      </Router>
+    </UserAuthContextProvider>
   );
 }
 
